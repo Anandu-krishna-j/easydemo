@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useStoreState } from "easy-peasy";
 import { useStoreActions } from "easy-peasy";
+import { Grid, Step, StepLabel, Stepper } from "@mui/material";
+
 
 function TodoList() {
   const todos = useStoreState((state) => state.todos);
@@ -24,6 +26,8 @@ function TodoList() {
       >
         Add todo
       </button>
+      <Grid sx={{display: "flex"}}>
+      <Grid>
       {todos.map((todo, idx) => (
         <div
           key={idx}
@@ -40,6 +44,19 @@ function TodoList() {
           {todo}
         </div>
       ))}
+      </Grid>
+      <Grid>
+      <Stepper activeStep={0} orientation="vertical">
+        {todos.map((step, index) => (
+          <Step key={index} >
+            <StepLabel
+            >
+            </StepLabel>
+          </Step>
+        ))}
+      </Stepper>
+      </Grid>
+      </Grid>
     </div>
   );
 }
