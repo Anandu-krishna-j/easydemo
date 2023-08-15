@@ -48,7 +48,7 @@ function TodoList() {
       <Grid>
       <Stepper activeStep={0} orientation="vertical">
         {todos.map((step, index) => (
-          <Step key={index} >
+          <Step key={index}>
             <StepLabel
             >
             </StepLabel>
